@@ -11,6 +11,13 @@ const schema = a.schema({
     .model({
       content: a.string(),
     }).authorization(allow => [allow.owner()]),
+
+  User: a
+    .model({
+      authId: a.string(),     // Authetication Id
+      email: a.string(),      // User email
+      username: a.string(),   // Custom username
+    }).authorization(allow => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
